@@ -1,0 +1,94 @@
+:root {
+    --primary-bg: #121212;
+    --secondary-bg: #1e1e1e;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --highlight-color: #ffffff;
+    --text-color: #ffffff;
+    
+    --red: #ff3b30;
+    --yellow: #ffcc00;
+    --green: #4cd964;
+    --blue: #007aff;
+
+     --gradient-green: linear-gradient(135deg, rgba(8, 170, 43, 0.3), rgba(8, 170, 43, 0.15));
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    font-family: "SF Pro Display", Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.color-box {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    background-color: var(--red); 
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.color-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 80%;
+    border-radius: 15px;
+    border: 2px solid var(--border-color);
+    background-color: var(--secondary-bg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+#container:hover {
+    border-color: var(--highlight-color);
+}
+
+#radio-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 50px;
+    background-color: rgba(238, 232, 232, 0.1);
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease-in-out;
+}
+
+#radio-buttons:hover {
+    background: var(--gradient-white);
+}
+
+/* Radio input styling */
+input[type="radio"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--highlight-color);
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="radio"]:checked {
+    background-color: var(--highlight-color);
+    box-shadow: 0 0 10px var(--highlight-color);
+}
+
+/* Change color box based on radio button selection */
+input[value="red"]:checked ~ .color-box { background-color: var(--red); }
+input[value="yellow"]:checked ~ .color-box { background-color: var(--yellow); }
+input[value="green"]:checked ~ .color-box { background-color: var(--green); }
+input[value="blue"]:checked ~ .color-box { background-color: var(--blue); }
